@@ -1,3 +1,20 @@
+beforeEach(() => {
+    console.info("assa9898sda89s98sda89sda")
+
+    cy.intercept({
+        method: 'GET',
+        hostname: 'mc.yandex.ru',
+    }, req => {
+        req.destroy();
+    });
+
+    cy.intercept({
+        method: 'GET',
+        hostname: 'yandex.ru'
+    }, req => {
+        req.destroy();
+    });
+});
 
 describe("Login", () => {
     it("click a link register", () => {
